@@ -1,0 +1,8 @@
+from google.colab import files
+import pandas as pd # Import pandas
+
+uploaded = files.upload()
+
+# Assuming a CSV with a column named 'review'
+df = pd.read_csv(next(iter(uploaded)))
+display(df.head()) # Use display for better formatting in Colab

@@ -1,0 +1,36 @@
+from ibm_watsonx_ai.foundation_models import Model
+import json
+
+def analyze_review_with_watsonx(review):
+    model_id = 'google/flan-ul2' # Choose an appropriate model ID
+    parameters = {
+        "max_new_tokens": 100,
+        "temperature": 0.3,
+        # Add other parameters as needed
+    }
+
+    model = Model(
+        model_id=model_id,
+        params=parameters,
+        credentials={
+            "url": watsonx_url,
+            "apikey": apikey
+        },
+        project_id=project_id
+    )
+
+    prompt = f"""Analyze this car rental review and:
+1. Identify the sentiment (Positive, Neutral, Negative)
+2. Extract key issues (e.g., late delivery, poor condition, helpful staff)
+
+Review: "{review}"
+Respond in JSON format with keys: sentiment, issues.
+"""
+
+    try:
+        response = model.generate(prompt)
+        # Assuming the response contains the JSON string directly
+        result = json.loads(response)
+        return result.get('sentiment', 'Unknown'), ", ".join(result.get('issues', ['Unknown']))
+    except Exception as e:
+        return "Error", str(e)

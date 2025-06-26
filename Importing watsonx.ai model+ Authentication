@@ -1,0 +1,12 @@
+from ibm_watsonx_ai.foundation_models import Model
+# Correct import for IAMTokenManager
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+
+# Replace with your actual credentials
+apikey = "uBmjEB8sk6dTv2iP3ZqVB8usYFiTauP_TzY7o2YM9Z3U"
+project_id = "b0c0c707aa94499a834e342908312708"
+watsonx_url = "https://us-south.ml.cloud.ibm.com"
+
+# Authenticate
+authenticator = IAMAuthenticator(apikey=apikey)
+# access_token = authenticator.get_token() # This line is not needed

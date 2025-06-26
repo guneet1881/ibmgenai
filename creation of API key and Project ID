@@ -1,0 +1,3 @@
+apikey = "uBmjEB8sk6dTv2iP3ZqVB8usYFiTauP_TzY7o2YM9Z3U"
+project_id = "6afaa5fc-4d75-43d1-9bef-4445e39e8482"
+watsonx_url = "https://us-south.ml.cloud.ibm.com"  # Change if using other region

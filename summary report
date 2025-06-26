@@ -1,0 +1,4 @@
+df.to_excel("car_rental_feedback_summary.xlsx", index=False)
+
+# Allow download
+files.download("car_rental_feedback_summary.xlsx")
